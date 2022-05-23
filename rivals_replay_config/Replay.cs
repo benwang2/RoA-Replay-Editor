@@ -15,7 +15,7 @@ namespace rivals_replay_config
         public static Regex botPatt = new Regex(@"[1-9](Player [1-4].{24})(.{6})(0\d\d)", RegexOptions.Compiled);
 
         private readonly OpenFileDialog replay;
-        private string content;
+        private String[] content;
 
         private Stage stage;
         private Player[] players = new Player[4];
@@ -26,7 +26,7 @@ namespace rivals_replay_config
             try
             {
                 StreamReader reader = new StreamReader(replay.OpenFile());
-                content = reader.ReadToEnd();
+                content = reader.ReadToEnd().Split('\n');
             } catch (FileNotFoundException e)
             {
                 throw e;
@@ -35,45 +35,39 @@ namespace rivals_replay_config
             if (content != null) {
                 stage = new Stage(getStageId());
 
-                string[] lines = content.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).Skip(2).ToArray();
-                for (var (i,j)=(0,0); i < lines.Length; i++)
-                    if (playerPatt.IsMatch(lines[i]) || botPatt.IsMatch(lines[i]))
-                        players[j++] = new Player(lines[i]);
+                for (var (i,j)=(0,0); i < content.Skip(2).ToArray().Length; i++)
+                    if (playerPatt.IsMatch(content[i]) || botPatt.IsMatch(content[i]))
+                        players[j++] = new Player(content[i]);
             }
         }
 
         public string getTitle()
         {
-            return content.Substring(21, 32);
+            return content[0].Substring(21, 32);
         }
 
         public bool setTitle(string newTitle)
         {
             if (newTitle.Length > 32) return false;
-            content = content.Substring(0, 21) + newTitle.PadRight(32) + content.Substring(53);
+            content[0] = content[0].Substring(0, 21) + newTitle.PadRight(32) + content[0].Substring(53);
             return true;
         }
 
         public string getDescription()
         {
-            return content.Substring(53, 140);
+            return content[0].Substring(53, 140);
         }
 
         public bool setDescription(string newDescription)
         {
             if (newDescription.Length > 140) return false;
-            content = content.Substring(0, 53) + newDescription.PadRight(140) + content.Substring(193);
+            content[0] = content[0].Substring(0, 53) + newDescription.PadRight(140) + content[0].Substring(193);
             return true;
         }
 
         private string getStageId()
         {
-            return content.Substring(216, 2);
-        }
-
-        private void setStageId(string id)
-        {
-            content = content.Substring(0, 216) + id + content.Substring(218);
+            return content[1].Substring(1, 2);
         }
 
         public Stage getStage()
@@ -84,20 +78,20 @@ namespace rivals_replay_config
         public bool setStage(string name)
         {
             if (!stage.isAlternateOf(name)) return false;
-            var id = Stage.stages.FirstOrDefault(x => x.Value == name.PadLeft(2, '0')).Key
-            setStageId(id.ToString());
+            var id = Stage.stages.FirstOrDefault(x => x.Value == name.PadLeft(2, '0')).Key;
+            content[1] = content[1].Substring(0, 1) + id.ToString() + content[1].Substring(3);
             return true;
         }
 
         public string getVersion()
         {
-            return content.Substring(1, 5);
+            return content[0].Substring(1, 5);
         }
 
         public bool setVersion(string version)
         {
             if (version.Length != 5) return false;
-            content = content.Substring(0, 1) + version + content.Substring(6);
+            content[0] = content[0].Substring(0, 1) + version + content[0].Substring(6);
             return true;
         }
 
@@ -108,9 +102,7 @@ namespace rivals_replay_config
 
         public string exportReplay()
         {
-            string[] lines = content.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
-            
-            return content;
+            return String.Join("\n",content);
         }
     }
 }
