@@ -37,7 +37,7 @@ namespace rivals_replay_config
 
                 for (var (i,j)=(0,0); i < content.Skip(2).ToArray().Length; i++)
                     if (playerPatt.IsMatch(content[i]) || botPatt.IsMatch(content[i]))
-                        players[j++] = new Player(content[i]);
+                        players[j++] = new Player(content,i);
             }
         }
 

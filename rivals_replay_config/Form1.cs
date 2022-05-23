@@ -98,7 +98,9 @@ namespace rivals_replay_config
             replay.setTitle(titleInput.Text);
             replay.setDescription(descriptionInput.Text);
             replay.setStage(stageSkinCombo.Text);
-           
+            replay.getPlayer(0).setUsername(p1UsernameInput.Text);
+            replay.getPlayer(0).setProfile(p1ProfileInput.Text);
+
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 StreamWriter writer = new StreamWriter(fileDialog.OpenFile());
