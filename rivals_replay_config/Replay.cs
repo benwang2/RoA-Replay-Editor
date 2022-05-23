@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -10,6 +11,9 @@ namespace rivals_replay_config
 {
     class Replay
     {
+        public static Regex playerPatt = new Regex(@"H(.{32})(.{6})(0\d\d)", RegexOptions.Compiled);
+        public static Regex botPatt = new Regex(@"[1-9](Player [1-4].{24})(.{6})(0\d\d)", RegexOptions.Compiled);
+
         private readonly OpenFileDialog replay;
         private string content;
 
@@ -32,9 +36,9 @@ namespace rivals_replay_config
                 stage = new Stage(getStageId());
 
                 string[] lines = content.Split(new string[] { Environment.NewLine }, StringSplitOptions.None).Skip(2).ToArray();
-                for (int i = 0; i < lines.Length; i++)
-                    if (i % 2 == 0 && lines[i].CompareTo("0") != 0)
-                        players[i / 2] = new Player(lines[i]);
+                for (var (i,j)=(0,0); i < lines.Length; i++)
+                    if (playerPatt.IsMatch(lines[i]) || botPatt.IsMatch(lines[i]))
+                        players[j++] = new Player(lines[i]);
             }
         }
 
@@ -80,8 +84,7 @@ namespace rivals_replay_config
         public bool setStage(string name)
         {
             if (!stage.isAlternateOf(name)) return false;
-            var id = Stage.stages.FirstOrDefault(x => x.Value == name.PadLeft(2,'0')).Key;
-            System.Diagnostics.Debug.WriteLine(stage.getName() + ", " + name + " " + ", id:" +id);
+            var id = Stage.stages.FirstOrDefault(x => x.Value == name.PadLeft(2, '0')).Key
             setStageId(id.ToString());
             return true;
         }

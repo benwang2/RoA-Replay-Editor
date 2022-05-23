@@ -19,36 +19,37 @@ namespace rivals_replay_config
 
         static Character()
         {
-            Characters.Add(2, "Zetterburn");
-            Characters.Add(3, "Orcane");
-            Characters.Add(4, "Wrastor");
-            Characters.Add(5, "Kragg");
-            Characters.Add(6, "Forsburn");
-            Characters.Add(7, "Maypul");
-            Characters.Add(8, "Absa");
-            Characters.Add(9, "Etalus");
-            Characters.Add(10, "Ori");
-            Characters.Add(11, "Ranno");
-            Characters.Add(12, "Clairen");
-            Characters.Add(13, "Sylvanos");
-            Characters.Add(14, "Elliana");
-            Characters.Add(15, "Shovel Knight");
-            Characters.Add(16, "Mollo");
-            Characters.Add(17, "Hodan");
-            Characters.Add(18, "Pomme");
-            Characters.Add(19, "Olympia");
-            Characters.Add(20, "Sandbert");
+            Characters.Add(002, "Zetterburn");
+            Characters.Add(003, "Orcane");
+            Characters.Add(004, "Wrastor");
+            Characters.Add(005, "Kragg");
+            Characters.Add(006, "Forsburn");
+            Characters.Add(007, "Maypul");
+            Characters.Add(008, "Absa");
+            Characters.Add(009, "Etalus");
+            Characters.Add(010, "Ori");
+            Characters.Add(011, "Ranno");
+            Characters.Add(012, "Clairen");
+            Characters.Add(013, "Sylvanos");
+            Characters.Add(014, "Elliana");
+            Characters.Add(015, "Shovel Knight");
+            Characters.Add(016, "Mollo");
+            Characters.Add(017, "Hodan");
+            Characters.Add(018, "Pomme");
+            Characters.Add(019, "Olympia");
+            Characters.Add(020, "Sandbert");
         }
 
         public Character(string characterId, string skin, string taunt, string customColor)
        { 
             try { this.characterId = Int32.Parse(characterId); }
             catch { System.Diagnostics.Debug.WriteLine("Failed to get character id."); };
+            Characters.TryGetValue(this.characterId, out name);
+
             this.skin = new Skin(this, skin);
             this.taunt = new Skin(this, taunt);
             this.customColor = customColor;
 
-            Characters.TryGetValue(this.characterId, out name);
             var charSpecific = skins.getSpecificSkins(name);
 
             foreach (string id in Skin.defaultSkins.Keys)

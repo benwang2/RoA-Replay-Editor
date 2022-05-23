@@ -40,15 +40,15 @@ namespace rivals_replay_config
         private void loadPlayer2Data(Player player2)
         {
 
-            p2UsernameInput.Text = player2.getUsername().TrimEnd();
-            p2ProfileInput.Text = player2.getProfile().TrimEnd();
-            p2Character.Text = player2.getCharacter().getName();
-            p2ColorInput.Text = player2.getCustomColor().TrimEnd();
-            p2CharacterSkinCombo.Enabled = true;
+            //p2UsernameInput.Text = player2.getUsername().TrimEnd();
+            //p2ProfileInput.Text = player2.getProfile().TrimEnd();
+            //p2Character.Text = player2.getCharacter().getName();
+            //p2ColorInput.Text = player2.getCustomColor().TrimEnd();
+            //p2CharacterSkinCombo.Enabled = true;
 
-            p2CharacterSkinCombo.Items.Clear();
-            foreach (string skin in player2.getCharacter().getAlts())
-                p2CharacterSkinCombo.Items.Add(skin);
+            //p2CharacterSkinCombo.Items.Clear();
+            //foreach (string skin in player2.getCharacter().getAlts())
+            //    p2CharacterSkinCombo.Items.Add(skin);
         }
 
         private void loadReplayData(Replay replay)

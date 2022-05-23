@@ -150,7 +150,7 @@ namespace rivals_replay_config
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.Size = new System.Drawing.Size(244, 161);
-            this.tableLayoutPanel2.TabIndex = 17
+            this.tableLayoutPanel2.TabIndex = 17;
             // 
             // versionInput
             // 
