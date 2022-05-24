@@ -120,7 +120,7 @@ namespace rivals_replay_config
             this.openFile.Name = "openFile";
             this.openFile.Size = new System.Drawing.Size(103, 23);
             this.openFile.TabIndex = 0;
-            this.openFile.Text = "Open File";
+            this.openFile.Text = "Open";
             this.openFile.UseVisualStyleBackColor = true;
             this.openFile.Click += new System.EventHandler(this.openFileClick);
             // 
@@ -130,7 +130,7 @@ namespace rivals_replay_config
             this.saveFile.Name = "saveFile";
             this.saveFile.Size = new System.Drawing.Size(99, 23);
             this.saveFile.TabIndex = 1;
-            this.saveFile.Text = "Save File";
+            this.saveFile.Text = "Save As";
             this.saveFile.UseVisualStyleBackColor = true;
             this.saveFile.Click += new System.EventHandler(this.saveFileClick);
             // 
