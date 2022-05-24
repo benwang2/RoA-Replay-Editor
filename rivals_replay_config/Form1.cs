@@ -35,6 +35,8 @@ namespace rivals_replay_config
                 p1Taunt.Items.Add(skin);
             }
 
+            p1Skin.SelectedItem = character.getSkin().getName();
+            p1Taunt.SelectedItem = character.getTaunt().getName();
         }
 
         private void loadPlayer2Data(Player player2)
@@ -100,6 +102,9 @@ namespace rivals_replay_config
             replay.setStage(stageSkinCombo.Text);
             replay.getPlayer(0).setUsername(p1UsernameInput.Text);
             replay.getPlayer(0).setProfile(p1ProfileInput.Text);
+            replay.getPlayer(0).getCharacter().setSkin(p1Skin.SelectedItem.ToString());
+            replay.getPlayer(0).getCharacter().setTaunt(p1Taunt.SelectedItem.ToString());
+            //replay.getPlayer(0).getCharacter().setCustomColor(p1ColorInput.Text);
 
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {

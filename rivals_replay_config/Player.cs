@@ -16,11 +16,7 @@ namespace rivals_replay_config
         {
             this.content = content;
             this.port = port;
-            character = new Character(content[port].Substring(39, 3),
-                content[port].Substring(42, 2),
-                content[port].Substring(44, 2),
-                content[port].Substring(54, 50)
-            );
+            character = new Character(content, port);
         }
 
         public string getUsername()         => content[port].Substring(1, 32).TrimEnd();
