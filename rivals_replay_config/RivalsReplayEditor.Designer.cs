@@ -101,6 +101,7 @@ namespace rivals_replay_config
             this.p4Profile = new System.Windows.Forms.TextBox();
             this.p4Character = new System.Windows.Forms.Label();
             this.p4Username = new System.Windows.Forms.TextBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.playerTabs.SuspendLayout();
@@ -115,10 +116,9 @@ namespace rivals_replay_config
             // 
             // openFile
             // 
-            this.openFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.openFile.Location = new System.Drawing.Point(12, 369);
+            this.openFile.Location = new System.Drawing.Point(26, 154);
             this.openFile.Name = "openFile";
-            this.openFile.Size = new System.Drawing.Size(75, 23);
+            this.openFile.Size = new System.Drawing.Size(103, 23);
             this.openFile.TabIndex = 0;
             this.openFile.Text = "Open File";
             this.openFile.UseVisualStyleBackColor = true;
@@ -126,10 +126,9 @@ namespace rivals_replay_config
             // 
             // saveFile
             // 
-            this.saveFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.saveFile.Location = new System.Drawing.Point(93, 369);
+            this.saveFile.Location = new System.Drawing.Point(135, 154);
             this.saveFile.Name = "saveFile";
-            this.saveFile.Size = new System.Drawing.Size(75, 23);
+            this.saveFile.Size = new System.Drawing.Size(99, 23);
             this.saveFile.TabIndex = 1;
             this.saveFile.Text = "Save File";
             this.saveFile.UseVisualStyleBackColor = true;
@@ -174,7 +173,7 @@ namespace rivals_replay_config
             this.tableLayoutPanel2.Controls.Add(this.label10, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.label8, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.stageSkinCombo, 1, 4);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(26, 12);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(26, 6);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 6;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -184,7 +183,7 @@ namespace rivals_replay_config
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(244, 122);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(208, 122);
             this.tableLayoutPanel2.TabIndex = 17;
             // 
             // descriptionInput
@@ -209,7 +208,7 @@ namespace rivals_replay_config
             // 
             this.versionInput.Location = new System.Drawing.Point(79, 96);
             this.versionInput.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.versionInput.Mask = "000000";
+            this.versionInput.Mask = "00000";
             this.versionInput.Name = "versionInput";
             this.versionInput.Size = new System.Drawing.Size(121, 20);
             this.versionInput.TabIndex = 21;
@@ -438,7 +437,7 @@ namespace rivals_replay_config
             this.playerTabs.Controls.Add(this.tabPage2);
             this.playerTabs.Controls.Add(this.tabPage3);
             this.playerTabs.Controls.Add(this.tabPage4);
-            this.playerTabs.Location = new System.Drawing.Point(276, 12);
+            this.playerTabs.Location = new System.Drawing.Point(246, 6);
             this.playerTabs.Name = "playerTabs";
             this.playerTabs.SelectedIndex = 0;
             this.playerTabs.Size = new System.Drawing.Size(244, 171);
@@ -957,16 +956,29 @@ namespace rivals_replay_config
             this.p4Username.Size = new System.Drawing.Size(121, 20);
             this.p4Username.TabIndex = 9;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(449, 180);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(41, 13);
+            this.linkLabel1.TabIndex = 21;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Source";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 404);
+            this.ClientSize = new System.Drawing.Size(495, 199);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.playerTabs);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.saveFile);
             this.Controls.Add(this.openFile);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Rivals Replay Editor";
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -985,6 +997,7 @@ namespace rivals_replay_config
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1060,6 +1073,7 @@ namespace rivals_replay_config
         private System.Windows.Forms.TextBox p4Profile;
         private System.Windows.Forms.Label p4Character;
         private System.Windows.Forms.TextBox p4Username;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

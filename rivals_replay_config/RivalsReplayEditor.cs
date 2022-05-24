@@ -27,6 +27,7 @@ namespace rivals_replay_config
             TextBox username = Controls.Find($"p{port + 1}Username", true).FirstOrDefault() as TextBox;
             TextBox profile = Controls.Find($"p{port + 1}Profile", true).FirstOrDefault() as TextBox;
             TextBox customColor = Controls.Find($"p{port + 1}Color", true).FirstOrDefault() as TextBox;
+            Label characterLabel = Controls.Find($"p{port + 1}Character", true).FirstOrDefault() as Label;
 
             ComboBox skins = Controls.Find($"p{port + 1}Skin", true).FirstOrDefault() as ComboBox;
             ComboBox taunts = Controls.Find($"p{port + 1}Taunt", true).FirstOrDefault() as ComboBox;
@@ -34,6 +35,8 @@ namespace rivals_replay_config
             username.Text = player.getUsername().TrimEnd();
             profile.Text = player.getProfile().TrimEnd();
             customColor.Text = character.getCustomColor().TrimEnd();
+            characterLabel.Text = character.getName();
+            
 
             skins.Items.Clear();
             taunts.Items.Clear();
@@ -51,8 +54,8 @@ namespace rivals_replay_config
 
         private void loadReplayData(Replay replay)
         {
-            titleInput.Text = replay.getTitle();
-            descriptionInput.Text = replay.getDescription();
+            titleInput.Text = replay.getTitle().TrimEnd();
+            descriptionInput.Text = replay.getDescription().TrimEnd();
             versionInput.Text = replay.getVersion();
             stageName.Text = replay.getStage().getName();
             stageSkinCombo.Items.Clear();
@@ -67,10 +70,65 @@ namespace rivals_replay_config
                 stageSkinCombo.SelectedItem = replay.getStage().getName();
             }
 
-            for (int i = 0;
-                i < 4 && replay.getPlayer(i) != null;
-                loadPortData(replay, i), i++
-            );
+            for (int i = 0; i < 4; i++)
+                if (replay.getPlayer(i) != null)
+                    loadPortData(replay, i);
+        }
+
+        private bool savePlayerData(int port)
+        {
+            Player player = replay.getPlayer(port);
+            Character character = player.getCharacter();
+
+            TextBox username = Controls.Find($"p{port + 1}Username", true).FirstOrDefault() as TextBox;
+            TextBox profile = Controls.Find($"p{port + 1}Profile", true).FirstOrDefault() as TextBox;
+            TextBox customColor = Controls.Find($"p{port + 1}Color", true).FirstOrDefault() as TextBox;
+
+            ComboBox skins = Controls.Find($"p{port + 1}Skin", true).FirstOrDefault() as ComboBox;
+            ComboBox taunts = Controls.Find($"p{port + 1}Taunt", true).FirstOrDefault() as ComboBox;
+
+            player.setUsername(username.Text);
+            player.setProfile(profile.Text);
+            character.setSkin(skins.SelectedItem.ToString());
+            character.setTaunt(taunts.SelectedItem.ToString());
+
+            if (!character.setCustomColor(customColor.Text))
+            {
+                if (character.getCustomColor().TrimEnd().Length != customColor.Text.TrimEnd().Length)
+                    MessageBox.Show($"Length of custom color must be identical to original length. (Player {port + 1})", "Error - Invalid custom color");
+                else
+                    MessageBox.Show($"Custom color contains invalid characters. (Player {port + 1})", "Error - Invalid custom color");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool saveReplayData()
+        {
+            if (replay == null)
+            {
+                MessageBox.Show("There is no replay to save.", "Error - No replay to save");
+                return false;
+            }
+
+            replay.setTitle(titleInput.Text);
+            replay.setDescription(descriptionInput.Text);
+            replay.setStage(stageSkinCombo.Text);
+            if (!replay.setVersion(versionInput.Text.Replace("_", string.Empty)))
+            {
+                if (versionInput.Text.Length != 5)
+                    MessageBox.Show("Version contains invalid characters.", "Error - Invalid version.");
+                else
+                    MessageBox.Show("Version must be exactly 5 characters long.", "Error - Invalid version.");
+                return false;
+            }
+
+            for (int i = 0; i < 4 && replay.getPlayer(i) != null; i++)
+                if (!savePlayerData(i))
+                    return false;
+
+            return true;
         }
 
         private void openFileClick(object sender, EventArgs e)
@@ -86,24 +144,19 @@ namespace rivals_replay_config
                 catch { }
                 if (replay != null)
                     loadReplayData(replay);
+                else
+                    MessageBox.Show("Failed to open replay file.", "Error - Invalid file");
             }
         }
 
         private void saveFileClick(object sender, EventArgs e)
         {
+            if (!saveReplayData()) return;
+
             SaveFileDialog fileDialog = new SaveFileDialog();
             String path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData).ToString(), "RivalsOfAether", "replays");
             fileDialog.InitialDirectory = path;
             fileDialog.Filter = "ROA Files|*.roa";
-
-            replay.setTitle(titleInput.Text);
-            replay.setDescription(descriptionInput.Text);
-            replay.setStage(stageSkinCombo.Text);
-            replay.getPlayer(0).setUsername(p1Username.Text);
-            replay.getPlayer(0).setProfile(p1Profile.Text);
-            replay.getPlayer(0).getCharacter().setSkin(p1Skin.SelectedItem.ToString());
-            replay.getPlayer(0).getCharacter().setTaunt(p1Taunt.SelectedItem.ToString());
-            replay.getPlayer(0).getCharacter().setCustomColor(p1Color.Text);
 
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -121,5 +174,9 @@ namespace rivals_replay_config
 
         }
 
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/benwang2/RoA-Replay-Editor");
+        }
     }
 }

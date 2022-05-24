@@ -13,6 +13,7 @@ namespace rivals_replay_config
     {
         public static Regex playerPatt = new Regex(@"H(.{32})(.{6})(0\d\d)", RegexOptions.Compiled);
         public static Regex botPatt = new Regex(@"[1-9](Player [1-4].{24})(.{6})(0\d\d)", RegexOptions.Compiled);
+        public static Regex VERSION_INVALID = new Regex(@"[^0-9]");
 
         private readonly OpenFileDialog replay;
         private String[] content;
@@ -37,9 +38,10 @@ namespace rivals_replay_config
             if (content != null) {
                 stage = new Stage(getStageId());
 
-                for (var (i,j)=(0,0); i < content.Skip(2).ToArray().Length; i++)
+                for (var (i,j)=(2,0); i < content.Length; i++)
                     if (playerPatt.IsMatch(content[i]) || botPatt.IsMatch(content[i]))
-                        players[j++] = new Player(content,i);
+                        players[j++] = new Player(content, i);
+
             }
         }
 
@@ -93,6 +95,7 @@ namespace rivals_replay_config
         public bool setVersion(string version)
         {
             if (version.Length != 5) return false;
+            if (VERSION_INVALID.Match(version) != Match.Empty) return false;
             content[0] = content[0].Substring(0, 1) + version + content[0].Substring(6);
             return true;
         }

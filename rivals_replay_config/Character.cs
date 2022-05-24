@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace rivals_replay_config
 {
     class Character
     {
+        public static Regex COLOR_INVALID = new Regex(@"[^A-F0-9]");
         public static Skins skins = new Skins();
         public static Dictionary<string, string> Characters = new Dictionary<string, string>();
         private string name;
@@ -70,7 +72,16 @@ namespace rivals_replay_config
         public string getName() => name;
         public string getCharacterId() => content[port].Substring(39, 3);
         public string getCustomColor() => content[port].Substring(54, 50);
-        public void setCustomColor(string color) => content[port] = content[port].Substring(0, 54) + color.PadRight(50) + content[port].Substring(104);
+        public bool setCustomColor(string color)
+        {
+            color = color.Replace("-", string.Empty);
+
+            if (color.TrimEnd().Length != getCustomColor().TrimEnd().Length) return false;
+            if (COLOR_INVALID.Match(color) != Match.Empty) return false;
+
+            content[port] = content[port].Substring(0, 54) + color.PadRight(50) + content[port].Substring(104);
+            return true;
+        }
         public Skin getSkin() => skin;
         public Skin getTaunt() => taunt;
 
@@ -90,7 +101,6 @@ namespace rivals_replay_config
         public bool setTaunt(string name)
         {
             string id = (from skin in alts where skin.getName() == name select skin.getId()).First();
-            System.Diagnostics.Debug.WriteLine("skin id:" + id);
             if (id == null) return false;
 
             taunt = new Skin(this, id);
