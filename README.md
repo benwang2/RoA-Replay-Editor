@@ -1,8 +1,13 @@
-# Rivals of Aether Replay Editor
 <div align="center">
-<img src="images/preview.png" width="245"/>
+  <a href="https://github.com/benwang2/RoA-Replay-Editor/">
+    <img src="https://raw.githubusercontent.com/benwang2/RoA-Replay-Editor/master/images/preview.png" alt="preview" width="248">
+  </a>
 
-A GUI solution to editing Rivals of Aether replay data.
+  <h3 align="center">Replay Editor</h3>
+
+  <p align="center">
+    A GUI solution to editing Rivals of Aether replay data.
+  </p>
 </div>
 
 ## About The Project
