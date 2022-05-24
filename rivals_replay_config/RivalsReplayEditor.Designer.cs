@@ -36,6 +36,8 @@ namespace rivals_replay_config
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.descriptionInput = new System.Windows.Forms.TextBox();
+            this.titleInput = new System.Windows.Forms.TextBox();
             this.versionInput = new System.Windows.Forms.MaskedTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.stageName = new System.Windows.Forms.Label();
@@ -72,15 +74,43 @@ namespace rivals_replay_config
             this.p2Character = new System.Windows.Forms.Label();
             this.p2Username = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.p3Taunt = new System.Windows.Forms.ComboBox();
+            this.p3Skin = new System.Windows.Forms.ComboBox();
+            this.p3Color = new System.Windows.Forms.TextBox();
+            this.p3Profile = new System.Windows.Forms.TextBox();
+            this.p3Character = new System.Windows.Forms.Label();
+            this.p3Username = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.titleInput = new System.Windows.Forms.TextBox();
-            this.descriptionInput = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.p4Taunt = new System.Windows.Forms.ComboBox();
+            this.p4Skin = new System.Windows.Forms.ComboBox();
+            this.p4Color = new System.Windows.Forms.TextBox();
+            this.p4Profile = new System.Windows.Forms.TextBox();
+            this.p4Character = new System.Windows.Forms.Label();
+            this.p4Username = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.playerTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFile
@@ -156,6 +186,24 @@ namespace rivals_replay_config
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(244, 122);
             this.tableLayoutPanel2.TabIndex = 17;
+            // 
+            // descriptionInput
+            // 
+            this.descriptionInput.Location = new System.Drawing.Point(79, 26);
+            this.descriptionInput.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.descriptionInput.MaxLength = 140;
+            this.descriptionInput.Name = "descriptionInput";
+            this.descriptionInput.Size = new System.Drawing.Size(121, 20);
+            this.descriptionInput.TabIndex = 22;
+            // 
+            // titleInput
+            // 
+            this.titleInput.Location = new System.Drawing.Point(79, 2);
+            this.titleInput.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.titleInput.MaxLength = 32;
+            this.titleInput.Name = "titleInput";
+            this.titleInput.Size = new System.Drawing.Size(121, 20);
+            this.titleInput.TabIndex = 21;
             // 
             // versionInput
             // 
@@ -577,6 +625,7 @@ namespace rivals_replay_config
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.tableLayoutPanel4);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(236, 145);
@@ -584,8 +633,166 @@ namespace rivals_replay_config
             this.tabPage3.Text = "Player 3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.Controls.Add(this.label18, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label19, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.label20, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.label21, 0, 3);
+            this.tableLayoutPanel4.Controls.Add(this.label22, 0, 5);
+            this.tableLayoutPanel4.Controls.Add(this.label23, 0, 4);
+            this.tableLayoutPanel4.Controls.Add(this.p3Taunt, 1, 5);
+            this.tableLayoutPanel4.Controls.Add(this.p3Skin, 1, 4);
+            this.tableLayoutPanel4.Controls.Add(this.p3Color, 1, 3);
+            this.tableLayoutPanel4.Controls.Add(this.p3Profile, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.p3Character, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.p3Username, 1, 1);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 6;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(236, 145);
+            this.tableLayoutPanel4.TabIndex = 18;
+            // 
+            // label18
+            // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label18.Location = new System.Drawing.Point(20, 2);
+            this.label18.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(70, 17);
+            this.label18.TabIndex = 23;
+            this.label18.Text = "Character";
+            // 
+            // label19
+            // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label19.Location = new System.Drawing.Point(17, 23);
+            this.label19.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(73, 17);
+            this.label19.TabIndex = 8;
+            this.label19.Text = "Username";
+            // 
+            // label20
+            // 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label20.Location = new System.Drawing.Point(3, 47);
+            this.label20.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(87, 17);
+            this.label20.TabIndex = 11;
+            this.label20.Text = "Profile name";
+            // 
+            // label21
+            // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label21.Location = new System.Drawing.Point(0, 71);
+            this.label21.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(90, 17);
+            this.label21.TabIndex = 12;
+            this.label21.Text = "Custom color";
+            // 
+            // label22
+            // 
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label22.Location = new System.Drawing.Point(45, 120);
+            this.label22.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(45, 17);
+            this.label22.TabIndex = 20;
+            this.label22.Text = "Taunt";
+            // 
+            // label23
+            // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label23.Location = new System.Drawing.Point(55, 95);
+            this.label23.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(35, 17);
+            this.label23.TabIndex = 14;
+            this.label23.Text = "Skin";
+            // 
+            // p3Taunt
+            // 
+            this.p3Taunt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.p3Taunt.FormattingEnabled = true;
+            this.p3Taunt.Location = new System.Drawing.Point(90, 120);
+            this.p3Taunt.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.p3Taunt.Name = "p3Taunt";
+            this.p3Taunt.Size = new System.Drawing.Size(121, 21);
+            this.p3Taunt.TabIndex = 21;
+            // 
+            // p3Skin
+            // 
+            this.p3Skin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.p3Skin.FormattingEnabled = true;
+            this.p3Skin.Location = new System.Drawing.Point(90, 95);
+            this.p3Skin.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.p3Skin.Name = "p3Skin";
+            this.p3Skin.Size = new System.Drawing.Size(121, 21);
+            this.p3Skin.TabIndex = 15;
+            // 
+            // p3Color
+            // 
+            this.p3Color.Location = new System.Drawing.Point(90, 71);
+            this.p3Color.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.p3Color.Name = "p3Color";
+            this.p3Color.Size = new System.Drawing.Size(121, 20);
+            this.p3Color.TabIndex = 13;
+            // 
+            // p3Profile
+            // 
+            this.p3Profile.Location = new System.Drawing.Point(90, 47);
+            this.p3Profile.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.p3Profile.Name = "p3Profile";
+            this.p3Profile.Size = new System.Drawing.Size(121, 20);
+            this.p3Profile.TabIndex = 10;
+            // 
+            // p3Character
+            // 
+            this.p3Character.AutoSize = true;
+            this.p3Character.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.p3Character.Location = new System.Drawing.Point(90, 2);
+            this.p3Character.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.p3Character.Name = "p3Character";
+            this.p3Character.Size = new System.Drawing.Size(42, 17);
+            this.p3Character.TabIndex = 22;
+            this.p3Character.Text = "None";
+            // 
+            // p3Username
+            // 
+            this.p3Username.Location = new System.Drawing.Point(90, 23);
+            this.p3Username.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.p3Username.MaxLength = 32;
+            this.p3Username.Name = "p3Username";
+            this.p3Username.Size = new System.Drawing.Size(121, 20);
+            this.p3Username.TabIndex = 9;
+            // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.tableLayoutPanel5);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(236, 145);
@@ -593,23 +800,162 @@ namespace rivals_replay_config
             this.tabPage4.Text = "Player 4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // titleInput
+            // tableLayoutPanel5
             // 
-            this.titleInput.Location = new System.Drawing.Point(79, 2);
-            this.titleInput.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.titleInput.MaxLength = 32;
-            this.titleInput.Name = "titleInput";
-            this.titleInput.Size = new System.Drawing.Size(121, 20);
-            this.titleInput.TabIndex = 21;
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel5.Controls.Add(this.label24, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label25, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.label26, 0, 2);
+            this.tableLayoutPanel5.Controls.Add(this.label27, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.label28, 0, 5);
+            this.tableLayoutPanel5.Controls.Add(this.label29, 0, 4);
+            this.tableLayoutPanel5.Controls.Add(this.p4Taunt, 1, 5);
+            this.tableLayoutPanel5.Controls.Add(this.p4Skin, 1, 4);
+            this.tableLayoutPanel5.Controls.Add(this.p4Color, 1, 3);
+            this.tableLayoutPanel5.Controls.Add(this.p4Profile, 1, 2);
+            this.tableLayoutPanel5.Controls.Add(this.p4Character, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.p4Username, 1, 1);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 6;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(236, 145);
+            this.tableLayoutPanel5.TabIndex = 19;
             // 
-            // descriptionInput
+            // label24
             // 
-            this.descriptionInput.Location = new System.Drawing.Point(79, 26);
-            this.descriptionInput.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.descriptionInput.MaxLength = 140;
-            this.descriptionInput.Name = "descriptionInput";
-            this.descriptionInput.Size = new System.Drawing.Size(121, 20);
-            this.descriptionInput.TabIndex = 22;
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label24.Location = new System.Drawing.Point(20, 2);
+            this.label24.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(70, 17);
+            this.label24.TabIndex = 23;
+            this.label24.Text = "Character";
+            // 
+            // label25
+            // 
+            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label25.Location = new System.Drawing.Point(17, 23);
+            this.label25.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(73, 17);
+            this.label25.TabIndex = 8;
+            this.label25.Text = "Username";
+            // 
+            // label26
+            // 
+            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label26.Location = new System.Drawing.Point(3, 47);
+            this.label26.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(87, 17);
+            this.label26.TabIndex = 11;
+            this.label26.Text = "Profile name";
+            // 
+            // label27
+            // 
+            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label27.Location = new System.Drawing.Point(0, 71);
+            this.label27.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(90, 17);
+            this.label27.TabIndex = 12;
+            this.label27.Text = "Custom color";
+            // 
+            // label28
+            // 
+            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label28.Location = new System.Drawing.Point(45, 120);
+            this.label28.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(45, 17);
+            this.label28.TabIndex = 20;
+            this.label28.Text = "Taunt";
+            // 
+            // label29
+            // 
+            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label29.Location = new System.Drawing.Point(55, 95);
+            this.label29.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(35, 17);
+            this.label29.TabIndex = 14;
+            this.label29.Text = "Skin";
+            // 
+            // p4Taunt
+            // 
+            this.p4Taunt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.p4Taunt.FormattingEnabled = true;
+            this.p4Taunt.Location = new System.Drawing.Point(90, 120);
+            this.p4Taunt.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.p4Taunt.Name = "p4Taunt";
+            this.p4Taunt.Size = new System.Drawing.Size(121, 21);
+            this.p4Taunt.TabIndex = 21;
+            // 
+            // p4Skin
+            // 
+            this.p4Skin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.p4Skin.FormattingEnabled = true;
+            this.p4Skin.Location = new System.Drawing.Point(90, 95);
+            this.p4Skin.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.p4Skin.Name = "p4Skin";
+            this.p4Skin.Size = new System.Drawing.Size(121, 21);
+            this.p4Skin.TabIndex = 15;
+            // 
+            // p4Color
+            // 
+            this.p4Color.Location = new System.Drawing.Point(90, 71);
+            this.p4Color.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.p4Color.Name = "p4Color";
+            this.p4Color.Size = new System.Drawing.Size(121, 20);
+            this.p4Color.TabIndex = 13;
+            // 
+            // p4Profile
+            // 
+            this.p4Profile.Location = new System.Drawing.Point(90, 47);
+            this.p4Profile.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.p4Profile.Name = "p4Profile";
+            this.p4Profile.Size = new System.Drawing.Size(121, 20);
+            this.p4Profile.TabIndex = 10;
+            // 
+            // p4Character
+            // 
+            this.p4Character.AutoSize = true;
+            this.p4Character.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.p4Character.Location = new System.Drawing.Point(90, 2);
+            this.p4Character.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.p4Character.Name = "p4Character";
+            this.p4Character.Size = new System.Drawing.Size(42, 17);
+            this.p4Character.TabIndex = 22;
+            this.p4Character.Text = "None";
+            // 
+            // p4Username
+            // 
+            this.p4Username.Location = new System.Drawing.Point(90, 23);
+            this.p4Username.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.p4Username.MaxLength = 32;
+            this.p4Username.Name = "p4Username";
+            this.p4Username.Size = new System.Drawing.Size(121, 20);
+            this.p4Username.TabIndex = 9;
             // 
             // Form1
             // 
@@ -632,6 +978,12 @@ namespace rivals_replay_config
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -682,6 +1034,32 @@ namespace rivals_replay_config
         private System.Windows.Forms.TextBox p2Username;
         private System.Windows.Forms.TextBox titleInput;
         private System.Windows.Forms.TextBox descriptionInput;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox p3Taunt;
+        private System.Windows.Forms.ComboBox p3Skin;
+        private System.Windows.Forms.TextBox p3Color;
+        private System.Windows.Forms.TextBox p3Profile;
+        private System.Windows.Forms.Label p3Character;
+        private System.Windows.Forms.TextBox p3Username;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.ComboBox p4Taunt;
+        private System.Windows.Forms.ComboBox p4Skin;
+        private System.Windows.Forms.TextBox p4Color;
+        private System.Windows.Forms.TextBox p4Profile;
+        private System.Windows.Forms.Label p4Character;
+        private System.Windows.Forms.TextBox p4Username;
     }
 }
 

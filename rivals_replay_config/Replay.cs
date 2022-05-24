@@ -27,6 +27,8 @@ namespace rivals_replay_config
             {
                 StreamReader reader = new StreamReader(replay.OpenFile());
                 content = reader.ReadToEnd().Split('\n');
+                reader.Dispose();
+                reader.Close();
             } catch (FileNotFoundException e)
             {
                 throw e;

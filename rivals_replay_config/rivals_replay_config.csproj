@@ -49,7 +49,6 @@
   <ItemGroup>
     <Compile Include="Character.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="Popup.cs" />
     <Compile Include="Replay.cs" />
     <Compile Include="Skin.cs" />
     <Compile Include="Skins.cs" />

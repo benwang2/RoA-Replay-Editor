@@ -19,72 +19,34 @@ namespace rivals_replay_config
             InitializeComponent();
         }
 
-        //private Dictionary<String, Control> getFieldsForPort(int port)
-        //{
-
-        //}
-
         private void loadPortData(Replay replay, int port)
         {
             Player player = replay.getPlayer(port);
+            Character character = player.getCharacter();
 
-            if (player != null)
+            TextBox username = Controls.Find($"p{port + 1}Username", true).FirstOrDefault() as TextBox;
+            TextBox profile = Controls.Find($"p{port + 1}Profile", true).FirstOrDefault() as TextBox;
+            TextBox customColor = Controls.Find($"p{port + 1}Color", true).FirstOrDefault() as TextBox;
+
+            ComboBox skins = Controls.Find($"p{port + 1}Skin", true).FirstOrDefault() as ComboBox;
+            ComboBox taunts = Controls.Find($"p{port + 1}Taunt", true).FirstOrDefault() as ComboBox;
+
+            username.Text = player.getUsername().TrimEnd();
+            profile.Text = player.getProfile().TrimEnd();
+            customColor.Text = character.getCustomColor().TrimEnd();
+
+            skins.Items.Clear();
+            taunts.Items.Clear();
+
+            string[] alts = character.getAlts();
+            for (int i = 0; i < alts.Length; i++)
             {
-                Character character = player.getCharacter();
-
-                Controls.Find($"p{port+1}Username",true).FirstOrDefault().Text = player.getUsername().TrimEnd();
-                //Controls[$"p{port+1}Profile"].Text = player.getProfile().TrimEnd();
-                //Controls[$"p{port+1}Character"].Text = character.getName();
-                //Controls[$"p{port+1}Color"].Text = character.getCustomColor().TrimEnd();
-
-                //ComboBox playerSkins = (ComboBox)Controls[$"p{port+1}Skin"];
-                //ComboBox playerTaunts = (ComboBox)Controls[$"p{port+1}Taunt"];
-
-                //playerSkins.Items.Clear();
-                //playerTaunts.Items.Clear();
-                //foreach (string skin in character.getAlts())
-                //{
-                //    playerSkins.Items.Add(skin);
-                //    playerTaunts.Items.Add(skin);
-                //}
-
-                //playerSkins.SelectedItem = character.getSkin().getName();
-                //playerTaunts.SelectedItem = character.getTaunt().getName();
-            }
-        }
-
-        private void loadPlayer1Data(Player player1)
-        {
-            Character character = player1.getCharacter();
-            p1Username.Text = player1.getUsername().TrimEnd();
-            p1Profile.Text = player1.getProfile().TrimEnd();
-            p1Character.Text = character.getName();
-            p1Color.Text = character.getCustomColor().TrimEnd();
-
-            p1Skin.Items.Clear();
-            p1Taunt.Items.Clear();
-            foreach (string skin in player1.getCharacter().getAlts())
-            {
-                p1Skin.Items.Add(skin);
-                p1Taunt.Items.Add(skin);
+                skins.Items.Add(alts[i]);
+                taunts.Items.Add(alts[i]);
             }
 
-            p1Skin.SelectedItem = character.getSkin().getName();
-            p1Taunt.SelectedItem = character.getTaunt().getName();
-        }
-
-        private void loadPlayer2Data(Player player2)
-        {
-
-            //p2UsernameInput.Text = player2.getUsername().TrimEnd();
-            //p2ProfileInput.Text = player2.getProfile().TrimEnd();
-            //p2Character.Text = player2.getCharacter().getName();
-            //p2ColorInput.Text = player2.getCustomColor().TrimEnd();
-            //p2CharacterSkinCombo.Enabled = true;
-
-            //p2CharacterSkinCombo.Items.Clear();
-            //foreach (string skin in player2.getCharacter().getAlts())
-            //    p2CharacterSkinCombo.Items.Add(skin);
+            skins.SelectedItem = character.getSkin().getName();
+            taunts.SelectedItem = character.getTaunt().getName();
         }
 
         private void loadReplayData(Replay replay)
@@ -97,6 +59,7 @@ namespace rivals_replay_config
 
             String[] alternates = replay.getStage().getAlternates();
             stageSkinCombo.Enabled = alternates != null;
+
             if (alternates != null)
             {
                 foreach (string skin in replay.getStage().getAlternates())
@@ -104,9 +67,10 @@ namespace rivals_replay_config
                 stageSkinCombo.SelectedItem = replay.getStage().getName();
             }
 
-            //loadPlayer1Data(replay.getPlayer(0));
-            //loadPlayer2Data(replay.getPlayer(1));
-            loadPortData(replay, 0);
+            for (int i = 0;
+                i < 4 && replay.getPlayer(i) != null;
+                loadPortData(replay, i), i++
+            );
         }
 
         private void openFileClick(object sender, EventArgs e)
