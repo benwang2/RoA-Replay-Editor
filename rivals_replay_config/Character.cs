@@ -11,37 +11,23 @@ namespace rivals_replay_config
     {
         public static Regex COLOR_INVALID = new Regex(@"[^A-F0-9]");
         public static Skins skins = new Skins();
-        public static Dictionary<string, string> Characters = new Dictionary<string, string>();
+        public static Dictionary<string, string> Characters = new Dictionary<string, string>(){
+            {"002", "Zetterburn"},{"003", "Orcane"},{"004", "Wrastor"},
+            {"005", "Kragg"},{"006", "Forsburn"},{"007", "Maypul"},
+            {"008", "Absa"},{"009", "Etalus"},{"010", "Ori"},
+            {"011", "Ranno"},{"012", "Clairen"},{"013", "Sylvanos"},
+            {"014", "Elliana"},{"015", "Shovel Knight"},{"016", "Mollo"},
+            {"017", "Hodan"},{"018", "Pomme"},{"019", "Olympia"},
+            {"020", "Sandbert"}
+        };
+
+
         private string name;
         private Skin skin;
         private Skin taunt;
         private List<Skin> alts = new List<Skin>();
         private string[] content;
         private int port;
-
-        static Character()
-        {
-            Characters.Add("002", "Zetterburn");
-            Characters.Add("003", "Orcane");
-            Characters.Add("004", "Wrastor");
-            Characters.Add("005", "Kragg");
-            Characters.Add("006", "Forsburn");
-            Characters.Add("007", "Maypul");
-            Characters.Add("008", "Absa");
-            Characters.Add("009", "Etalus");
-            Characters.Add("010", "Ori");
-            Characters.Add("011", "Ranno");
-            Characters.Add("012", "Clairen");
-            Characters.Add("013", "Sylvanos");
-            Characters.Add("014", "Elliana");
-            Characters.Add("015", "Shovel Knight");
-            Characters.Add("016", "Mollo");
-            Characters.Add("017", "Hodan");
-            Characters.Add("018", "Pomme");
-            Characters.Add("019", "Olympia");
-            Characters.Add("020", "Sandbert");
-        }
-
 
         public Character(string characterId, string skin, string taunt, string customColor)
        { 
